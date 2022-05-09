@@ -5,6 +5,12 @@
 
 Made validate vue props easier.
 
+## Installation
+
+```sh
+pnpm i zod-vue zod
+```
+
 ## Usage
 
 ```ts
