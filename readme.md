@@ -23,6 +23,8 @@ const props = defineProps(
     str: z.string().optional(),
     bool: z.boolean().default(true),
     array: z.array(z.number()).default(() => [1]),
+    fn: z.function(z.tuple([z.number()]), z.boolean()),
+    customFn: z.function() as ZodFn<[number], boolean>,
   })
 )
 

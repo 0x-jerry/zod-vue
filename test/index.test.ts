@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { buildProps } from '../src'
+import { buildProps, ZodFn } from '../src'
 
 describe('build props', () => {
   it('should working with validate', () => {
@@ -69,5 +69,15 @@ describe('build props', () => {
     expect(p.num?.validator(undefined)).toBe(true)
 
     expect(p.num?.validator('123')).toBe(false)
+  })
+
+  it('should working with function type', () => {
+    const p = buildProps({
+      fn: z.function(z.tuple([z.number()]), z.boolean()),
+      fn1: z.function().optional() as any as ZodFn<[number], boolean, true>,
+    })
+
+    expect(p.fn?.validator(() => {})).toBe(true)
+    expect(p.fn1?.validator(() => {})).toBe(true)
   })
 })
