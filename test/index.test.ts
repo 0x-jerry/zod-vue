@@ -11,6 +11,7 @@ describe('build props', () => {
       array: z.array(z.number()),
     })
 
+    expect(p.num?.required).toBe(true)
     // number
     expect(p.num.validator('s')).toBe(false)
     expect(p.num.validator(0)).toBe(true)
@@ -57,5 +58,16 @@ describe('build props', () => {
     expect(p.enum.validator(undefined)).toBe(true)
     expect(p.enum.validator('')).toBe(false)
     expect(p.enum.validator('n2')).toBe(true)
+  })
+
+  it('should working with optional type', () => {
+    const p = buildProps({
+      num: z.number().optional(),
+    })
+
+    expect(p.num?.required).toBe(false)
+    expect(p.num?.validator(undefined)).toBe(true)
+
+    expect(p.num?.validator('123')).toBe(false)
   })
 })
