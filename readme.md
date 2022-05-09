@@ -1,5 +1,8 @@
 # Zod Vue
 
+[![npm (scoped)](https://img.shields.io/npm/v/zod-vue?style=for-the-badge)](https://www.npmjs.com/package/zod-vue)
+[![Codecov](https://img.shields.io/codecov/c/gh/0x-jerry/zod-vue?style=for-the-badge)](https://codecov.io/gh/0x-jerry/zod-vue)
+
 Made validate vue props easier.
 
 ## Usage
